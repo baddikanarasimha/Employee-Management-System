@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="js/css/style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Add Employee</h1>
+        <form id="addForm">
+            <input type="text" id="name" placeholder="Name" required><br>
+            <input type="email" id="email" placeholder="Email" required><br>
+            <input type="text" id="department" placeholder="Department" required><br>
+            <input type="number" id="salary" placeholder="Salary" required><br>
+            <button type="submit">Add Employee</button>
+        </form>
+        
+        <a href="index.html" class="back-to-home">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Home
+        </a>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/add.js"></script>
+</body>
+</html>

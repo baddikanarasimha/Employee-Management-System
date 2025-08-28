@@ -1,0 +1,212 @@
+/* Login Page Styles */
+body.login-page {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: all 0.3s ease;
+}
+
+.login-container:hover {
+    transform: translateY(-5px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.login-container h1 {
+    color: #1a237e;
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+}
+
+.login-container h1:after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #e1e8ed;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.login-container input:focus {
+    border-color: #667eea;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    background: #ffffff;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-container button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(102, 126, 234, 0.3);
+    background: linear-gradient(135deg, #5a6fe8, #6a3f9d);
+}
+
+.login-container button:active {
+    transform: translateY(1px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+}
+
+.login-container button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.login-container button:hover::before {
+    left: 100%;
+}
+
+#error-msg {
+    color: #e74c3c;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+#error-msg.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Shake animation for error */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+#error-msg.shake {
+    animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Input error state */
+.input-error {
+    border-color: #e74c3c !important;
+    background-color: rgba(231, 76, 60, 0.05) !important;
+}
+
+.input-error:focus {
+    border-color: #e74c3c !important;
+    box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.1) !important;
+}
+
+/* Success animation */
+@keyframes success {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); opacity: 0; }
+}
+
+.success {
+    animation: success 0.5s ease-out forwards;
+}
+
+/* Floating labels animation */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    margin-bottom: 0;
+}
+
+.input-group label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    padding: 0 5px;
+    color: #666;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: 0;
+    transform: translateY(-50%) scale(0.9);
+    background: #fff;
+    color: #667eea;
+}
+
+/* Additional animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-container {
+    animation: fadeIn 0.6s ease-out;
+}
